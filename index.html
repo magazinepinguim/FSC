@@ -3,165 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Vendas Pro</title>
+    <title>Loja Pinguim - Vendas Reais</title>
     <style>
-        :root { --primary: #0033ff; --success: #28a745; --bg: #f8f9fa; }
-        body { font-family: sans-serif; margin: 0; background: var(--bg); color: #333; }
-        header { background: var(--primary); color: white; padding: 1rem; text-align: center; }
-        
-        .container { display: grid; grid-template-columns: 1fr 350px; gap: 20px; padding: 20px; max-width: 1200px; margin: auto; }
-        
-        /* Grid de Produtos */
-        .vitrine { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
-        .card { background: white; padding: 15px; border-radius: 8px; border: 1px solid #ddd; text-align: center; }
-        .card img { max-width: 100%; height: 120px; object-fit: contain; }
-        
-        /* Carrinho e Pagamento */
-        .sidebar { background: white; padding: 20px; border-radius: 8px; border: 1px solid #ddd; height: fit-content; }
-        .metodo-pagamento { margin: 15px 0; padding: 10px; background: #eee; border-radius: 5px; }
-        .metodo-pagamento label { display: block; margin: 8px 0; cursor: pointer; }
-        
-        button { width: 100%; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .btn-add { background: var(--primary); color: white; margin-top: 10px; }
-        .btn-finalizar { background: var(--success); color: white; font-size: 1.1rem; }
-        button:disabled { background: #ccc; cursor: not-allowed; }
-
-        /* Histórico */
-        .historico { grid-column: 1 / -1; background: white; padding: 20px; border-radius: 8px; margin-top: 20px; border: 1px solid #ddd; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border-bottom: 1px solid #eee; padding: 10px; text-align: left; }
+        :root { --primary: #0056b3; --accent: #25d366; --bg: #f0f2f5; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); }
+        header { background: var(--primary); color: white; padding: 1.5rem; text-align: center; font-weight: bold; }
+        .container { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 20px; max-width: 1000px; margin: auto; }
+        @media (min-width: 768px) { .container { grid-template-columns: 1fr 350px; } }
+        .vitrine { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
+        .card { background: white; padding: 15px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .card img { max-width: 100%; height: 120px; object-fit: contain; border-radius: 8px; }
+        .preco { color: var(--primary); font-weight: bold; font-size: 1.1rem; }
+        .btn-add { background: var(--primary); color: white; border: none; padding: 10px; width: 100%; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold; }
+        .sidebar { background: white; padding: 20px; border-radius: 12px; height: fit-content; border: 1px solid #ddd; position: sticky; top: 20px; }
+        .btn-finalizar { background: var(--accent); color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; font-size: 1rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; }
     </style>
 </head>
 <body>
-
-<header><h1>Simulador de Vendas Varejo</h1></header>
-
+<header>
+    <div style="font-size: 1.5rem;">🐧 LOJA PINGUIM</div>
+    <div style="font-size: 0.8rem; font-weight: normal;">Sua loja de confiança</div>
+</header>
 <div class="container">
     <div class="vitrine" id="vitrine"></div>
-
     <div class="sidebar">
-        <h3>Carrinho</h3>
-        <div id="itens-carrinho"><p>Vazio</p></div>
-        <hr>
-        <h4>Pagamento</h4>
-        <div class="metodo-pagamento">
-            <label><input type="radio" name="pagamento" value="Pix" checked> Pix (5% OFF)</label>
-            <label><input type="radio" name="pagamento" value="Cartão de Crédito"> Cartão de Crédito</label>
-            <label><input type="radio" name="pagamento" value="Boleto"> Boleto Bancário</label>
+        <h3>🛒 Seu Pedido</h3>
+        <div id="itens-carrinho"><p style="color: #999;">Carrinho vazio</p></div>
+        <div style="font-size: 1.3rem; margin: 20px 0; display: flex; justify-content: space-between;">
+            <span>Total:</span> <strong>R$ <span id="total-venda">0,00</span></strong>
         </div>
-        <div style="font-size: 1.4rem; margin-bottom: 15px;">Total: <b>R$ <span id="total-venda">0,00</span></b></div>
-        <button class="btn-finalizar" onclick="gravarVenda()">Confirmar Venda</button>
-    </div>
-
-    <div class="historico">
-        <h3>Vendas Armazenadas (LocalStorage)</h3>
-        <table id="tabela-vendas">
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Produtos</th>
-                    <th>Pagamento</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-        <button onclick="limparHistorico()" style="width: auto; background: #ff4444; color: white; margin-top: 10px; padding: 5px 10px;">Limpar Histórico</button>
+        <button class="btn-finalizar" onclick="enviarPedido()">Fechar Pedido via WhatsApp</button>
     </div>
 </div>
-
 <script>
+    // IMPORTANTE: COLOQUE SEU NÚMERO ABAIXO ENTRE AS ASPAS
+    // Exemplo: "5511999999999" (DDI + DDD + Número)
+    const SEU_WHATSAPP = "COLOQUE_SEU_NUMERO_AQUI"; 
+
     const produtos = [
-        { id: 1, nome: "Smart TV 50'", preco: 2500 },
-        { id: 2, nome: "Smartphone G", preco: 1500 },
-        { id: 3, nome: "Fone Air", preco: 200 },
-        { id: 4, nome: "Notebook Pro", preco: 4500 }
+        { id: 1, nome: "Smart TV 50'", preco: 2590.00, img: "https://via.placeholder.com/150?text=TV" },
+        { id: 2, nome: "Smartphone G Pro", preco: 1850.00, img: "https://via.placeholder.com/150?text=Celular" },
+        { id: 3, nome: "Fone Bluetooth", preco: 199.90, img: "https://via.placeholder.com/150?text=Fone" }
     ];
-
     let carrinho = [];
-
-    // Carregar produtos na tela
     function carregarProdutos() {
         const v = document.getElementById('vitrine');
         produtos.forEach(p => {
-            v.innerHTML += `
-                <div class="card">
-                    <img src="https://via.placeholder.com/150?text=${p.nome}" alt="${p.nome}">
-                    <h4>${p.nome}</h4>
-                    <p>R$ ${p.preco.toFixed(2)}</p>
-                    <button class="btn-add" onclick="add(${p.id})">Adicionar</button>
-                </div>
-            `;
+            v.innerHTML += `<div class="card"><img src="${p.img}"><h4>${p.nome}</h4><p class="preco">R$ ${p.preco.toFixed(2)}</p><button class="btn-add" onclick="add(${p.id})">Adicionar</button></div>`;
         });
     }
-
     function add(id) {
         const p = produtos.find(item => item.id === id);
         carrinho.push(p);
         renderCarrinho();
     }
-
     function renderCarrinho() {
         const lista = document.getElementById('itens-carrinho');
         const totalTxt = document.getElementById('total-venda');
         let total = 0;
-        
-        lista.innerHTML = carrinho.map(i => `<div>${i.nome} - R$ ${i.preco.toFixed(2)}</div>`).join('') || "Vazio";
+        lista.innerHTML = carrinho.map(i => `<div style="font-size:0.8rem; margin-bottom:5px;">${i.nome} - R$ ${i.preco.toFixed(2)}</div>`).join('') || "Vazio";
         carrinho.forEach(i => total += i.preco);
         totalTxt.innerText = total.toLocaleString('pt-BR', {minimumFractionDigits: 2});
     }
-
-    // ARMAZENAMENTO
-    function gravarVenda() {
-        if (carrinho.length === 0) return alert("Carrinho vazio!");
-
+    function enviarPedido() {
+        if (carrinho.length === 0) return alert("Adicione produtos!");
         const total = document.getElementById('total-venda').innerText;
-        const pagamento = document.querySelector('input[name="pagamento"]:checked').value;
-        const data = new Date().toLocaleString('pt-BR');
-
-        const novaVenda = {
-            data: data,
-            itens: carrinho.map(i => i.nome).join(', '),
-            pagamento: pagamento,
-            total: total
-        };
-
-        // Pegar o que já existe no LocalStorage ou criar array vazio
-        const historico = JSON.parse(localStorage.getItem('vendas_simuladas')) || [];
-        historico.push(novaVenda);
-        
-        // Salvar de volta
-        localStorage.setItem('vendas_simuladas', JSON.stringify(historico));
-
-        alert("Venda registrada com sucesso!");
-        carrinho = [];
-        renderCarrinho();
-        exibirHistorico();
+        let lista = carrinho.map(i => `- ${i.nome}`).join('%0A');
+        const texto = `🚀 *NOVO PEDIDO - LOJA PINGUIM*%0A%0A${lista}%0A%0A*TOTAL: R$ ${total}*`;
+        window.open(`https://wa.me/${SEU_WHATSAPP}?text=${texto}`, '_blank');
     }
-
-    function exibirHistorico() {
-        const historico = JSON.parse(localStorage.getItem('vendas_simuladas')) || [];
-        const corpoTabela = document.querySelector('#tabela-vendas tbody');
-        corpoTabela.innerHTML = historico.map(v => `
-            <tr>
-                <td>${v.data}</td>
-                <td>${v.itens}</td>
-                <td>${v.pagamento}</td>
-                <td>R$ ${v.total}</td>
-            </tr>
-        `).reverse().join('');
-    }
-
-    function limparHistorico() {
-        if(confirm("Deseja apagar todas as vendas salvas?")) {
-            localStorage.removeItem('vendas_simuladas');
-            exibirHistorico();
-        }
-    }
-
-    // Inicialização
     carregarProdutos();
-    exibirHistorico();
 </script>
 </body>
 </html>
