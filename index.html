@@ -3,63 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FSC Empréstimos - Simulação Online</title>
+    <title>FSC Empréstimos - Especialista em Sorocaba</title>
     <style>
-        :root { --primary: #002d5b; --accent: #d32f2f; --bg: #f8f9fa; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg); color: #333; }
-        header { background: var(--primary); color: white; padding: 2rem 1rem; text-align: center; }
-        .container { max-width: 500px; margin: -30px auto 20px; padding: 15px; }
-        .card { background: white; border-radius: 8px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 15px; }
-        .btn { display: block; background: var(--primary); color: white; text-decoration: none; text-align: center; padding: 12px; border-radius: 4px; font-weight: bold; margin-top: 10px; }
-        .destaque { border-left: 5px solid var(--accent); }
-        .confianca { text-align: center; font-size: 0.8rem; color: #2e7d32; margin-top: 20px; }
+        /* CORES PRETO E DOURADO */
+        :root { 
+            --gold: #D4AF37; /* Dourado Metálico */
+            --dark-gold: #B8860B; 
+            --black: #000000; 
+            --dark-gray: #1a1a1a;
+            --text-light: #ffffff; 
+        }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            margin: 0; 
+            background: var(--black); 
+            color: var(--text-light); 
+        }
+
+        header { 
+            background: var(--black); 
+            border-bottom: 2px solid var(--gold);
+            color: var(--gold); 
+            padding: 3rem 1rem; 
+            text-align: center; 
+        }
+
+        h1 { margin: 0; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; }
+        header p { color: var(--text-light); font-weight: 300; margin-top: 10px; }
+
+        .container { max-width: 500px; margin: 20px auto; padding: 15px; }
+
+        .card { 
+            background: var(--dark-gray); 
+            border: 1px solid #333;
+            border-radius: 12px; 
+            padding: 20px; 
+            margin-bottom: 20px; 
+            transition: transform 0.3s;
+        }
+
+        .card:hover { border-color: var(--gold); }
+
+        h3 { color: var(--gold); margin-top: 0; }
+        p { color: #ccc; font-size: 0.95rem; }
+
+        .btn { 
+            display: block; 
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold)); 
+            color: var(--black); 
+            text-decoration: none; 
+            text-align: center; 
+            padding: 14px; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+
+        .destaque { border: 2px solid var(--gold); }
+
+        .confianca { 
+            text-align: center; 
+            font-size: 0.85rem; 
+            color: var(--gold); 
+            margin-top: 30px; 
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
 
 <header>
     <h1>FSC Empréstimos</h1>
-    <p>Simulação rápida e segura</p>
+    <p>Simulação rápida, segura e em Sorocaba</p>
 </header>
 
 <div class="container">
-    <h2 style="text-align: center; color: var(--primary);">🏆 Top 5 Soluções Mais Procuradas</h2>
+    <h2 style="text-align: center; color: var(--gold); margin-bottom: 30px;">🏆 Soluções de Elite para Você</h2>
 
     <div class="card destaque">
-        <h3 style="margin: 0;">1. Antecipação do FGTS</h3>
-        <p style="font-size: 0.9rem; color: #666;">Dinheiro na conta em poucas horas sem comprometer sua renda mensal.</p>
+        <h3>1. Antecipação do FGTS</h3>
+        <p>Receba seu dinheiro hoje mesmo. Sem boletos mensais e com a melhor taxa da região.</p>
         <a href="https://wa.me/5515996067098?text=Olá!+Vim+pelo+site+e+quero+simular+a+antecipação+do+meu+FGTS." class="btn">Simular Agora</a>
     </div>
 
     <div class="card">
-        <h3 style="margin: 0;">2. Crédito Pessoal Online</h3>
-        <p style="font-size: 0.9rem; color: #666;">A solução rápida para imprevistos e quitação de dívidas.</p>
+        <h3>2. Crédito Pessoal Online</h3>
+        <p>Dinheiro rápido para quem precisa de agilidade e transparência total.</p>
         <a href="https://wa.me/5515996067098?text=Olá!+Quero+saber+mais+sobre+o+Crédito+Pessoal+Online." class="btn">Saber Mais</a>
     </div>
 
     <div class="card">
-        <h3 style="margin: 0;">3. Empréstimo Consignado</h3>
-        <p style="font-size: 0.9rem; color: #666;">As menores taxas para aposentados e servidores.</p>
+        <h3>3. Empréstimo Consignado</h3>
+        <p>Especial para aposentados, pensionistas e servidores de Sorocaba.</p>
         <a href="https://wa.me/5515996067098?text=Olá!+Gostaria+de+consultar+as+taxas+do+Empréstimo+Consignado." class="btn">Consultar Taxas</a>
     </div>
 
     <div class="card">
-        <h3 style="margin: 0;">4. Financiamento de Veículos</h3>
-        <p style="font-size: 0.9rem; color: #666;">Ideal para carros usados ou de leilão.</p>
+        <h3>4. Financiamento de Veículos</h3>
+        <p>Aprovação facilitada para o seu carro novo ou de leilão.</p>
         <a href="https://wa.me/5515996067098?text=Olá!+Tenho+interesse+no+financiamento+de+veículos." class="btn">Ver Opções</a>
     </div>
 
     <div class="card">
-        <h3 style="margin: 0;">5. Crédito para MEI</h3>
-        <p style="font-size: 0.9rem; color: #666;">Capital de giro para o seu negócio crescer.</p>
+        <h3>5. Crédito para MEI</h3>
+        <p>Impulsione o seu negócio local com capital de giro imediato.</p>
         <a href="https://wa.me/5515996067098?text=Olá!+Sou+MEI+e+preciso+de+crédito+para+minha+empresa." class="btn">Pedir Crédito</a>
     </div>
 
     <div class="confianca">
-        🔒 Ambiente 100% Seguro | ⚡ Aprovação em até 24h
+        🔒 Consultoria Premium | 📍 Atendimento em Sorocaba-SP
     </div>
 </div>
 
 </body>
 </html>
-
