@@ -3,54 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Empréstimo - FC</title>
+    <title>FSC - Crédito Premium</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 350px; text-align: center; }
-        h2 { color: #1c1e21; margin-bottom: 20px; }
-        label { display: block; text-align: left; margin-bottom: 8px; color: #4b4f56; font-weight: 600; }
-        input { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #dddfe2; border-radius: 6px; box-sizing: border-box; font-size: 16px; }
-        button { width: 100%; padding: 14px; background-color: #25d366; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; transition: background 0.3s; }
-        button:hover { background-color: #128c7e; }
-        .footer { margin-top: 15px; font-size: 12px; color: #90949c; }
+        /* Estilo Black & Gold */
+        body {
+            background-color: #000; /* Fundo Preto */
+            color: #d4af37; /* Dourado Clássico */
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: linear-gradient(145deg, #1a1a1a, #000000);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px #050505, -5px -5px 15px #222; /* Efeito de profundidade 3D */
+            border: 1px solid #d4af37;
+            width: 90%;
+            max-width: 380px;
+            text-align: center;
+        }
+
+        h2 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #f1d592;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: none;
+            border-radius: 10px;
+            background: #111;
+            color: #fff;
+            box-shadow: inset 3px 3px 6px #000, inset -1px -1px 3px #333;
+            font-size: 18px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        /* Botão Dourado em Alto Relievo */
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(145deg, #d4af37, #b8860b);
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.4), inset 1px 1px 2px rgba(255,255,255,0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:active {
+            transform: scale(0.98);
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <h2>Simulador FC</h2>
+<div class="container">
+    <h2>FSC Empréstimos</h2>
     
-    <label for="valor">Quanto você precisa?</label>
+    <label for="valor">VALOR DA SIMULAÇÃO</label>
     <input type="number" id="valor" placeholder="R$ 0,00" step="0.01">
 
-    <button onclick="enviarSimulacao()">Simular e Chamar no Whats</button>
+    <button onclick="enviarSimulacao()">Solicitar Agora</button>
     
-    <div class="footer">Taxa de juros: 40%</div>
+    <div class="footer-text">Simulação com taxa de 40% inclusa.</div>
 </div>
 
 <script>
     function enviarSimulacao() {
         const valorInput = document.getElementById('valor').value;
-        const meuNumero = "55XXXXXXXXXXX"; // <--- COLOQUE SEU NÚMERO AQUI (Apenas números: 55 + DDD + Número)
+        const meuNumero = "5515996067098"; // COLOQUE SEU NÚMERO AQUI
 
         if (!valorInput || valorInput <= 0) {
-            alert("Por favor, insira um valor para simular.");
+            alert("Por favor, digite o valor que você precisa.");
             return;
         }
 
         const valorOriginal = parseFloat(valorInput);
-        const juros = 0.40; // 40%
+        const juros = 0.40; // 40% de juro
         const valorTotal = valorOriginal * (1 + juros);
 
-        // Mensagem formatada para o WhatsApp
-        const mensagem = `Olá! Vi seu site e gostaria de um empréstimo.%0A%0A` +
-                         `*Valor solicitado:* R$ ${valorOriginal.toFixed(2)}%0A` +
-                         `*Total com juros (40%):* R$ ${valorTotal.toFixed(2)}`;
+        // Mensagem formatada
+        const mensagem = `Olá FSC! Gostaria de solicitar um empréstimo.%0A%0A` +
+                         `*Valor:* R$ ${valorOriginal.toFixed(2)}%0A` +
+                         `*Total (com 40% de juros):* R$ ${valorTotal.toFixed(2)}`;
 
-        // URL da API oficial
         const url = `https://wa.me/${meuNumero}?text=${mensagem}`;
 
-        // Abre em uma nova aba/janela
         window.open(url, '_blank');
     }
 </script>
