@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FSC Empréstimos - Linktree</title>
+    <title>FSC Empréstimos - Linktree Premium</title>
     <style>
-        /* Estilização Geral */
+        /* Estilização Geral - Dark Mode de Luxo */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212; /* Fundo escuro luxo */
+            font-family: 'Montserrat', sans-serif; /* Fonte mais moderna e limpa */
+            background-color: #0c0c0c; /* Preto ainda mais profundo */
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -20,64 +20,77 @@
 
         .container {
             width: 100%;
-            max-width: 400px;
-            padding: 40px 20px;
+            max-width: 420px;
+            padding: 50px 20px;
             text-align: center;
         }
 
-        /* Logo Personalizado */
+        /* Container do Logo - Estilo "Nicho" Premium */
+        .logo-container {
+            position: relative;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
         .logo-container img {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 2px solid #d4af37; /* Borda dourada */
-            margin-bottom: 20px;
+            /* Borda dourada grossa e complexa imitando a moldura do logo */
+            border: 4px solid #d4af37; 
             object-fit: cover;
-            box-shadow: 0px 4px 15px rgba(212, 175, 55, 0.3);
+            box-shadow: 0px 8px 25px rgba(212, 175, 55, 0.4), /* Brilho Dourado */
+                        inset 0px 4px 10px rgba(0,0,0,0.5); /* Sombra interna para profundidade */
         }
 
         h1 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #d4af37; /* Dourado */
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            color: #f1c40f; /* Dourado mais vivo para destaque */
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
+            font-weight: 700;
         }
 
         p {
-            font-size: 0.9rem;
-            margin-bottom: 30px;
+            font-size: 0.95rem;
+            margin-bottom: 35px;
             opacity: 0.8;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
-        /* Botões */
+        /* Área de Links - Design Unificado */
         .links-area {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 18px;
         }
 
+        /* Botão Principal com Efeito 3D sutil no hover */
         .btn {
             text-decoration: none;
             color: #121212;
             background-color: #d4af37; /* Dourado principal */
-            padding: 15px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: transform 0.2s, background-color 0.3s;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 18px 25px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
+            letter-spacing: 1px;
         }
 
         .btn:hover {
-            transform: scale(1.03);
-            background-color: #f1c40f; /* Dourado mais brilhante no hover */
+            transform: translateY(-3px) scale(1.02); /* Sobe e cresce levemente */
+            background-color: #f1c40f; 
+            box-shadow: 0px 10px 20px rgba(212, 175, 55, 0.5); /* Brilho Dourado intenso no hover */
         }
 
-        /* Botão Secundário / Transparente */
+        /* Botões Secundários - Estilo "Vazado" Polido */
         .btn-outline {
             background-color: transparent;
             color: #d4af37;
@@ -85,31 +98,39 @@
         }
 
         .btn-outline:hover {
-            background-color: rgba(212, 175, 55, 0.1);
+            background-color: rgba(212, 175, 55, 0.15);
             color: #f1c40f;
+            border-color: #f1c40f;
         }
 
+        /* Rodapé Discreto */
         footer {
             margin-top: auto;
-            padding: 20px;
+            padding: 25px;
             font-size: 0.8rem;
-            opacity: 0.5;
+            opacity: 0.6;
+            letter-spacing: 1px;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="container">
         <div class="logo-container">
-            <img src="image.png" alt="FSC Empréstimos">
+            <img src="image.png" alt="FSC Empréstimos - Logo 3D em Alto Relevo">
         </div>
 
         <h1>FSC Empréstimos</h1>
-        <p>Soluções financeiras rápidas e seguras.</p>
+        <p>A Solução Financeira Premium que você merece.</p>
 
         <div class="links-area">
-            <a href="https://wa.me/SEUNUMERO" class="btn">
-                Simular Empréstimo via WhatsApp
+            <a href="https://wa.me/SEUNUMERO" target="_blank" class="btn">
+                Falar com Consultor no WhatsApp
+            </a>
+
+            <a href="#" class="btn btn-outline">
+                Simular seu Empréstimo Online
             </a>
 
             <a href="#" class="btn btn-outline">
@@ -117,17 +138,13 @@
             </a>
 
             <a href="#" class="btn btn-outline">
-                Área do Cliente
-            </a>
-
-            <a href="#" class="btn btn-outline">
-                Nossos Serviços
+                Acessar Área do Cliente
             </a>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 FSC Empréstimos - Todos os direitos reservados.
+        &copy; 2026 FSC Empréstimos. Excelência em Soluções Financeiras.
     </footer>
 
 </body>
