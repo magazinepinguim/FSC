@@ -3,124 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FSC - Crédito Premium</title>
+    <title>FSC Empréstimos - Linktree</title>
     <style>
-        /* Estilo Black & Gold */
+        /* Estilização Geral */
         body {
-            background-color: #000; /* Fundo Preto */
-            color: #d4af37; /* Dourado Clássico */
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Fundo escuro luxo */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .container {
-            background: linear-gradient(145deg, #1a1a1a, #000000);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 10px 10px 20px #050505, -5px -5px 15px #222; /* Efeito de profundidade 3D */
-            border: 1px solid #d4af37;
-            width: 90%;
-            max-width: 380px;
+            width: 100%;
+            max-width: 400px;
+            padding: 40px 20px;
             text-align: center;
         }
 
-        h2 {
+        /* Logo Personalizado */
+        .logo-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid #d4af37; /* Borda dourada */
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0px 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #d4af37; /* Dourado */
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        p {
+            font-size: 0.9rem;
             margin-bottom: 30px;
+            opacity: 0.8;
         }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
+        /* Botões */
+        .links-area {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            text-decoration: none;
+            color: #121212;
+            background-color: #d4af37; /* Dourado principal */
+            padding: 15px 20px;
+            border-radius: 8px;
             font-weight: bold;
-            color: #f1d592;
+            font-size: 1rem;
+            transition: transform 0.2s, background-color 0.3s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        input {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 25px;
-            border: none;
-            border-radius: 10px;
-            background: #111;
-            color: #fff;
-            box-shadow: inset 3px 3px 6px #000, inset -1px -1px 3px #333;
-            font-size: 18px;
-            box-sizing: border-box;
-            outline: none;
+        .btn:hover {
+            transform: scale(1.03);
+            background-color: #f1c40f; /* Dourado mais brilhante no hover */
         }
 
-        /* Botão Dourado em Alto Relievo */
-        button {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(145deg, #d4af37, #b8860b);
-            color: #000;
-            border: none;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-            text-transform: uppercase;
-            box-shadow: 4px 4px 10px rgba(0,0,0,0.4), inset 1px 1px 2px rgba(255,255,255,0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
+        /* Botão Secundário / Transparente */
+        .btn-outline {
+            background-color: transparent;
+            color: #d4af37;
+            border: 2px solid #d4af37;
         }
 
-        button:active {
-            transform: scale(0.98);
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+        .btn-outline:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+            color: #f1c40f;
         }
 
-        .footer-text {
-            margin-top: 20px;
-            font-size: 12px;
-            color: #666;
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            font-size: 0.8rem;
+            opacity: 0.5;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>FSC Empréstimos</h2>
-    
-    <label for="valor">VALOR DA SIMULAÇÃO</label>
-    <input type="number" id="valor" placeholder="R$ 0,00" step="0.01">
+    <div class="container">
+        <div class="logo-container">
+            <img src="image.png" alt="FSC Empréstimos">
+        </div>
 
-    <button onclick="enviarSimulacao()">Solicitar Agora</button>
-    
-    <div class="footer-text">Simulação com taxa de 40% inclusa.</div>
-</div>
+        <h1>FSC Empréstimos</h1>
+        <p>Soluções financeiras rápidas e seguras.</p>
 
-<script>
-    function enviarSimulacao() {
-        const valorInput = document.getElementById('valor').value;
-        const meuNumero = "5515996067098"; // COLOQUE SEU NÚMERO AQUI
+        <div class="links-area">
+            <a href="https://wa.me/SEUNUMERO" class="btn">
+                Simular Empréstimo via WhatsApp
+            </a>
 
-        if (!valorInput || valorInput <= 0) {
-            alert("Por favor, digite o valor que você precisa.");
-            return;
-        }
+            <a href="#" class="btn btn-outline">
+                Consultar Taxas e Prazos
+            </a>
 
-        const valorOriginal = parseFloat(valorInput);
-        const juros = 0.40; // 40% de juro
-        const valorTotal = valorOriginal * (1 + juros);
+            <a href="#" class="btn btn-outline">
+                Área do Cliente
+            </a>
 
-        // Mensagem formatada
-        const mensagem = `Olá FSC! Gostaria de solicitar um empréstimo.%0A%0A` +
-                         `*Valor:* R$ ${valorOriginal.toFixed(2)}%0A` +
-                         `*Total (com 40% de juros):* R$ ${valorTotal.toFixed(2)}`;
+            <a href="#" class="btn btn-outline">
+                Nossos Serviços
+            </a>
+        </div>
+    </div>
 
-        const url = `https://wa.me/${meuNumero}?text=${mensagem}`;
-
-        window.open(url, '_blank');
-    }
-</script>
+    <footer>
+        &copy; 2026 FSC Empréstimos - Todos os direitos reservados.
+    </footer>
 
 </body>
 </html>
